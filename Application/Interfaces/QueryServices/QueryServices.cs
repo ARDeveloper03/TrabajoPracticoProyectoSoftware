@@ -4,10 +4,10 @@ namespace Application.UseCase;
 
 public interface IQueryServices
 {
-    Task<List<Category>> GetCategories();
-    Task<List<Product>> GetProducts();
-    Task<List<Sale>> GetSales();
-    Task<Category> GetCategoryById(int id);
-    Task<Product> GetProductById(Guid id);
-    Task<Sale> GetSaleById(int id);
+    Task<List<Category>> getCategories();
+    Task<List<Product>> getProducts();
+    Task<List<Sale>> getSales();
+    Task<Category> getCategoryById(int id);
+    Task<Product> getProductById(Guid id);
+    Task<Sale> getSaleById(int id);
 }

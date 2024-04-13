@@ -4,6 +4,6 @@ namespace Application.Interfaces;
 
 public interface ICategoryQuery
 {
-    List<Category> GetListCategories();
-    Category GetCategory(int categoryId);
+    List<Category> getListCategories();
+    Category getCategory(int categoryId);
 }

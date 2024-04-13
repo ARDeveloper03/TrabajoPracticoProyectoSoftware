@@ -17,30 +17,30 @@ public class QueryServices : IQueryServices
     }
 
     //Listing
-    public Task<List<Category>> GetCategories()
+    public Task<List<Category>> getCategories()
     {
         return __categoryServices.getAll();
     }
 
-    public Task<List<Product>> GetProducts()
+    public Task<List<Product>> getProducts()
     {
-        return __productServices.GetAll();
+        return __productServices.getAll();
     }
 
-    public Task<List<Sale>> GetSales()
+    public Task<List<Sale>> getSales()
     {
         return __saleServices.getAll();
     }
     //Get by id
-    public Task<Category> GetCategoryById(int id)
+    public Task<Category> getCategoryById(int id)
     {
         return __categoryServices.getById(id);
     }
-    public Task<Product> GetProductById(Guid id)
+    public Task<Product> getProductById(Guid id)
     {
-        return __productServices.GetById(id);
+        return __productServices.getById(id);
     }
-    public Task<Sale> GetSaleById(int id)
+    public Task<Sale> getSaleById(int id)
     {
         return __saleServices.getById(id);
     }

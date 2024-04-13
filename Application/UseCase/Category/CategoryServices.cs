@@ -28,13 +28,13 @@ public class CategoryServices : ICategoryServices
 
     public Task<List<Category>> getAll()
     {
-        var categories = __query.GetListCategories();
+        var categories = __query.getListCategories();
         return Task.FromResult(categories);
     }
 
     public Task<Category> getById(int categoryId)
     {
-        var categories = __query.GetCategory(categoryId);
+        var categories = __query.getCategory(categoryId);
         return Task.FromResult(categories);
     }
 }

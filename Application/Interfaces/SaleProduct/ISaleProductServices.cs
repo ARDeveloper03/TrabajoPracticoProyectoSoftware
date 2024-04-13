@@ -4,8 +4,8 @@ namespace Application.Interfaces;
 
 public interface ISaleProductServices
 {
-    Task CreateSale(SaleProduct saleProduct);
-    Task DeleteSale(SaleProduct saleProduct);
-    Task<List<SaleProduct>> GetAll();
-    Task<SaleProduct> GetById(int shoppingCartId);
+    Task createSale(SaleProduct saleProduct);
+    Task deleteSale(SaleProduct saleProduct);
+    Task<List<SaleProduct>> getAll();
+    Task<SaleProduct> getById(int shoppingCartId);
 }

@@ -13,13 +13,13 @@ public class CategoryQuery : ICategoryQuery
         __context = context;
     }
 
-    public Category GetCategory(int categoryId)
+    public Category getCategory(int categoryId)
     {
         var categories = __context.Categories.FirstOrDefault(s => s.CategoryId == categoryId);
         return categories;
     }
 
-    public List<Category> GetListCategories()
+    public List<Category> getListCategories()
     {
         var categories = __context.Categories
                         .ToList();

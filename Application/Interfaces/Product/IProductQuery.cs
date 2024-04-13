@@ -4,6 +4,6 @@ namespace Application.Interfaces;
 
 public interface IProductQuery
 {
-    List<Product> GetListProducts();
-    Product GetProduct(Guid productId);
+    List<Product> getListProducts();
+    Product getProduct(Guid productId);
 }

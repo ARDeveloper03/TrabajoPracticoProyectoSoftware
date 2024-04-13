@@ -14,25 +14,25 @@ public class SaleProductService : ISaleProductServices
         __query = query;
     }
 
-    public async Task CreateSale(SaleProduct saleProduct)
+    public async Task createSale(SaleProduct saleProduct)
     {
-        await __command.InsertSaleProduct(saleProduct);
+        await __command.insertSaleProduct(saleProduct);
     }
 
-    public async Task DeleteSale(SaleProduct saleProduct)
+    public async Task deleteSale(SaleProduct saleProduct)
     {
-        await __command.RemoveSaleProduct(saleProduct);
+        await __command.removeSaleProduct(saleProduct);
     }
 
-    public Task<List<SaleProduct>> GetAll()
+    public Task<List<SaleProduct>> getAll()
     {
-        var SaleProduct = __query.GetListSaleProducts();
+        var SaleProduct = __query.getListSaleProducts();
         return Task.FromResult(SaleProduct);
     }
 
-    public Task<SaleProduct> GetById(int shoppingCartId)
+    public Task<SaleProduct> getById(int shoppingCartId)
     {
-        var SaleProduct = __query.GetSaleProduct(shoppingCartId);
+        var SaleProduct = __query.getSaleProduct(shoppingCartId);
         return Task.FromResult(SaleProduct);
     }
 }

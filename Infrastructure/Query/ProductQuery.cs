@@ -13,13 +13,13 @@ public class ProductQuery : IProductQuery
         __context = context;
     }
 
-    public List<Product> GetListProducts()
+    public List<Product> getListProducts()
     {
         var products = __context.Products.ToList();
         return products;
     }
 
-    public Product GetProduct(Guid productId)
+    public Product getProduct(Guid productId)
     {
         var products = __context.Products
                         .FirstOrDefault(s => s.ProductId == productId);

@@ -14,25 +14,25 @@ public class ProductServices : IProductServices
         __query = query;
     }
 
-    public async Task CreateProduct(Product product)
+    public async Task createProduct(Product product)
     {
-        await __command.InsertProduct(product);
+        await __command.insertProduct(product);
     }
 
-    public async Task DeleteProduct(Product product)
+    public async Task deleteProduct(Product product)
     {
-        await __command.RemoveProduct(product);
+        await __command.removeProduct(product);
     }
 
-    public Task<List<Product>> GetAll()
+    public Task<List<Product>> getAll()
     {
-        var products = __query.GetListProducts();
+        var products = __query.getListProducts();
         return Task.FromResult(products);
     }
 
-    public Task<Product> GetById(Guid productId)
+    public Task<Product> getById(Guid productId)
     {
-        var products = __query.GetProduct(productId);
+        var products = __query.getProduct(productId);
         return Task.FromResult(products);
     }
 }

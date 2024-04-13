@@ -4,6 +4,6 @@ namespace Application.Interfaces;
 
 public interface ISaleProductCommands
 {
-    Task InsertSaleProduct(SaleProduct saleProduct);
-    Task RemoveSaleProduct(SaleProduct saleProduct);
+    Task insertSaleProduct(SaleProduct saleProduct);
+    Task removeSaleProduct(SaleProduct saleProduct);
 }

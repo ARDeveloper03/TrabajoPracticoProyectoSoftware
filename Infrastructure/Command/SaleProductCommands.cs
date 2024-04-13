@@ -13,13 +13,13 @@ public class SaleProductCommands : ISaleProductCommands
         __context = context;
     }
 
-    public async Task InsertSaleProduct(SaleProduct saleProduct)
+    public async Task insertSaleProduct(SaleProduct saleProduct)
     {
         __context.Add(saleProduct);
         await __context.SaveChangesAsync();
     }
 
-    public async Task RemoveSaleProduct(SaleProduct saleProduct)
+    public async Task removeSaleProduct(SaleProduct saleProduct)
     {
         __context.Remove(saleProduct);
         await __context.SaveChangesAsync();

@@ -28,7 +28,7 @@ using (var context = new RetailContext()){
     // Category chosenOne = await categoryServices.GetById(6);
     // await categoryServices.DeleteCategory(chosenOne);
     //Testing
-    var fetchedCategories = await queryServices.GetProducts();
+    var fetchedCategories = await queryServices.getProducts();
 
     foreach(Product element in fetchedCategories){
     Console.WriteLine("Id: " + element.ProductId);

@@ -13,14 +13,14 @@ public class SaleProductQuery : ISaleProductQuery
         __context = context;
     }
 
-    public List<SaleProduct> GetListSaleProducts()
+    public List<SaleProduct> getListSaleProducts()
     {
         var saleproducts = __context.SaleProducts
                             .ToList();
         return saleproducts;
     }
 
-    public SaleProduct GetSaleProduct(int shoppingCartId)
+    public SaleProduct getSaleProduct(int shoppingCartId)
     {
         var saleproducts = __context.SaleProducts
                             .FirstOrDefault(s => s.ShoppingCartId == shoppingCartId);

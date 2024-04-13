@@ -4,9 +4,9 @@ namespace Application.Interfaces;
 
 public interface IProductServices
 {
-    Task CreateProduct(Product product);
-    Task DeleteProduct(Product product);
-    Task<List<Product>> GetAll();
-    Task<Product> GetById(Guid productId);
+    Task createProduct(Product product);
+    Task deleteProduct(Product product);
+    Task<List<Product>> getAll();
+    Task<Product> getById(Guid productId);
 
 }

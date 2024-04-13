@@ -3,12 +3,12 @@ using Domain.Entities;
 
 namespace Application.UseCase;
 
-public class SaleService : ISaleServices
+public class SaleServices : ISaleServices
 {
     private readonly ISaleCommands __command;
     private readonly ISaleQuery __query;
 
-    public SaleService(ISaleCommands command, ISaleQuery query)
+    public SaleServices(ISaleCommands command, ISaleQuery query)
     {
         __command = command;
         __query = query;

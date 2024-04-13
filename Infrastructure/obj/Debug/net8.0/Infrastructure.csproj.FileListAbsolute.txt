@@ -17,3 +17,4 @@ c:\Users\Pc\Desktop\Uni\Proyecto_Software\Trabajo_Practico_1\Infrastructure\obj\
 c:\Users\Pc\Desktop\Uni\Proyecto_Software\Trabajo_Practico_1\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 c:\Users\Pc\Desktop\Uni\Proyecto_Software\Trabajo_Practico_1\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
 c:\Users\Pc\Desktop\Uni\Proyecto_Software\Trabajo_Practico_1\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+c:\Users\Pc\Desktop\Uni\Proyecto_Software\Trabajo_Practico_1\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json

@@ -9,22 +9,30 @@ using Infrastructure.Query;
 
 using (var context = new RetailContext()){
     context.Database.EnsureCreated();
-    // CategoryCommands commands = new CategoryCommands(context);
-    // CategoryQuery query = new CategoryQuery(context);
-    // CategoryServices categoryServices = new CategoryServices(commands, query);
+    CategoryCommands commands = new CategoryCommands(context);
+    CategoryQuery query = new CategoryQuery(context);
+    ProductCommands productCommands = new ProductCommands(context);
+    ProductQuery productQuery = new ProductQuery(context);
+    SaleCommands saleCommands = new SaleCommands(context);
+    SaleQuery saleQuery = new SaleQuery(context);
+    CategoryServices categoryServices = new CategoryServices(commands, query);
+    ProductServices productServices = new ProductServices(productCommands, productQuery);
+    SaleServices saleServices = new SaleServices(saleCommands, saleQuery);
+    QueryServices queryServices = new QueryServices(categoryServices, productServices, saleServices);
+    
     // Category firstOne = new Category();
     // firstOne.CategoryId = 7;
     // firstOne.Name = "Medicine";
     // await categoryServices.CreateCategory(firstOne);
     // Category chosenOne = await categoryServices.GetById(6);
     // await categoryServices.DeleteCategory(chosenOne);
-    // var fetchedCategories = await categoryServices.GetAll();
+    var fetchedCategories = await queryServices.GetProducts();
 
-    // foreach(Category element in fetchedCategories){
-    // Console.WriteLine("Id: " + element.CategoryId);
-    // Console.WriteLine("Name: " + element.Name);
-    // Console.WriteLine("---------------------------");
-    // }
+    foreach(Product element in fetchedCategories){
+    Console.WriteLine("Id: " + element.ProductId);
+    Console.WriteLine("Name: " + element.Name);
+    Console.WriteLine("---------------------------");
+    }
 
 
 }

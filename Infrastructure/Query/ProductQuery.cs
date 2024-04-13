@@ -15,7 +15,8 @@ public class ProductQuery : IProductQuery
 
     public List<Product> GetListProducts()
     {
-        throw new NotImplementedException();
+        var products = __context.Products.ToList();
+        return products;
     }
 
     public Product GetProduct(Guid productId)

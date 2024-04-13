@@ -19,7 +19,7 @@ public class QueryServices : IQueryServices
     //Listing
     public Task<List<Category>> GetCategories()
     {
-        return __categoryServices.GetAll();
+        return __categoryServices.getAll();
     }
 
     public Task<List<Product>> GetProducts()
@@ -29,12 +29,12 @@ public class QueryServices : IQueryServices
 
     public Task<List<Sale>> GetSales()
     {
-        return __saleServices.GetAll();
+        return __saleServices.getAll();
     }
     //Get by id
     public Task<Category> GetCategoryById(int id)
     {
-        return __categoryServices.GetById(id);
+        return __categoryServices.getById(id);
     }
     public Task<Product> GetProductById(Guid id)
     {
@@ -42,6 +42,6 @@ public class QueryServices : IQueryServices
     }
     public Task<Sale> GetSaleById(int id)
     {
-        return __saleServices.GetById(id);
+        return __saleServices.getById(id);
     }
 }

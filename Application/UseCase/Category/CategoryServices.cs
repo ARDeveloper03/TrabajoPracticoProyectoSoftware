@@ -14,25 +14,25 @@ public class CategoryServices : ICategoryServices
         __query = query;
     }
 
-    public async Task CreateCategory(Category category)
+    public async Task createCategory(Category category)
     {
-        await __command.InsertCategory(category);
+        await __command.insertCategory(category);
 
     }
 
-    public async Task DeleteCategory(Category category)
+    public async Task deleteCategory(Category category)
     {
-        await __command.RemoveCategory(category);
+        await __command.removeCategory(category);
         // return Task.FromResult<object>(null);
     }
 
-    public Task<List<Category>> GetAll()
+    public Task<List<Category>> getAll()
     {
         var categories = __query.GetListCategories();
         return Task.FromResult(categories);
     }
 
-    public Task<Category> GetById(int categoryId)
+    public Task<Category> getById(int categoryId)
     {
         var categories = __query.GetCategory(categoryId);
         return Task.FromResult(categories);

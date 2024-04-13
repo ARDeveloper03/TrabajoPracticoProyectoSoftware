@@ -14,25 +14,25 @@ public class SaleServices : ISaleServices
         __query = query;
     }
 
-    public async Task CreateSale(Sale sale)
+    public async Task createSale(Sale sale)
     {
-        await __command.InsertSale(sale);
+        await __command.insertSale(sale);
     }
 
-    public async Task DeleteSale(Sale sale)
+    public async Task deleteSale(Sale sale)
     {
-        await __command.RemoveSale(sale);
+        await __command.removeSale(sale);
     }
 
-    public Task<List<Sale>> GetAll()
+    public Task<List<Sale>> getAll()
     {
-        var sales = __query.GetListSales();
+        var sales = __query.getListSales();
         return Task.FromResult(sales);
     }
 
-    public Task<Sale> GetById(int saleId)
+    public Task<Sale> getById(int saleId)
     {
-        var sales = __query.GetSale(saleId);
+        var sales = __query.getSale(saleId);
         return Task.FromResult(sales);
     }
 }

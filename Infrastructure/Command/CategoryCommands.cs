@@ -13,13 +13,13 @@ public class CategoryCommands : ICategoryCommands
         __context = context;
     }
 
-    public async Task InsertCategory(Category category)
+    public async Task insertCategory(Category category)
     {
         __context.Add(category);
         await __context.SaveChangesAsync();
     }
 
-    public async Task RemoveCategory(Category category)
+    public async Task removeCategory(Category category)
     {
         __context.Remove(category);
         await __context.SaveChangesAsync();

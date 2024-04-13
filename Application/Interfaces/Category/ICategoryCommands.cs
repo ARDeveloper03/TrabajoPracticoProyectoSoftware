@@ -4,6 +4,6 @@ namespace Application.Interfaces;
 
 public interface ICategoryCommands
 {
-    Task InsertCategory(Category category);
-    Task RemoveCategory(Category category);
+    Task insertCategory(Category category);
+    Task removeCategory(Category category);
 }

@@ -4,8 +4,8 @@ namespace Application;
 
 public interface ICategoryServices
 {
-    Task CreateCategory(Category category);
-    Task DeleteCategory(Category category);
-    Task<List<Category>> GetAll();
-    Task<Category> GetById(int categoryId);
+    Task createCategory(Category category);
+    Task deleteCategory(Category category);
+    Task<List<Category>> getAll();
+    Task<Category> getById(int categoryId);
 }

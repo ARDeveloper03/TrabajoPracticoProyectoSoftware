@@ -1,5 +1,6 @@
 ﻿//Implement dependency injection
 using Application.Interfaces;
+using Application.Screens;
 using Application.UseCase;
 using Domain.Entities;
 using Infrastructure;
@@ -19,13 +20,14 @@ using (var context = new RetailContext()){
     ProductServices productServices = new ProductServices(productCommands, productQuery);
     SaleServices saleServices = new SaleServices(saleCommands, saleQuery);
     QueryServices queryServices = new QueryServices(categoryServices, productServices, saleServices);
-    
+    //Testing
     // Category firstOne = new Category();
     // firstOne.CategoryId = 7;
     // firstOne.Name = "Medicine";
     // await categoryServices.CreateCategory(firstOne);
     // Category chosenOne = await categoryServices.GetById(6);
     // await categoryServices.DeleteCategory(chosenOne);
+    //Testing
     var fetchedCategories = await queryServices.GetProducts();
 
     foreach(Product element in fetchedCategories){
@@ -33,6 +35,5 @@ using (var context = new RetailContext()){
     Console.WriteLine("Name: " + element.Name);
     Console.WriteLine("---------------------------");
     }
-
 
 }

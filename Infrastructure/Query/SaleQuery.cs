@@ -13,14 +13,14 @@ public class SaleQuery : ISaleQuery
         __context = context;
     }
 
-    public List<Sale> GetListSales()
+    public List<Sale> getListSales()
     {
         var sales = __context.Sales
                     .ToList();
         return sales;
     }
 
-    public Sale GetSale(int saleId)
+    public Sale getSale(int saleId)
     {
         var sales = __context.Sales
                     .FirstOrDefault(s => s.SaleId == saleId);

@@ -4,6 +4,6 @@ namespace Application.Interfaces;
 
 public interface ISaleQuery
 {
-    List<Sale> GetListSales();
-    Sale GetSale(int saleId);
+    List<Sale> getListSales();
+    Sale getSale(int saleId);
 }

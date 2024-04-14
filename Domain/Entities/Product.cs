@@ -21,5 +21,6 @@ public class Product
     public decimal Price {get;set;}
     public Category Category {get;set;}
     public int CategoryId {get;set;}
+    public int Discount {get;set;}
     public string ImageUrl {get;set;}
 }

@@ -4,9 +4,15 @@ namespace Application.Screens;
 
 public class MainMenu : IScreen
 {
-    public MainMenu(){
+    private readonly IScreen __cartMenu;
+    private readonly IScreen __listingMenu;
 
+    public MainMenu(IScreen cartMenu, IScreen listingMenu)
+    {
+        __cartMenu = cartMenu;
+        __listingMenu = listingMenu;
     }
+
     public async void drawScreen()
     {
         string input = "0";        
@@ -19,6 +25,9 @@ public class MainMenu : IScreen
                     Console.WriteLine("Opcion 2: Carrito de compra");
                     Console.WriteLine("Opcion 3: Salir de la aplicacion");
                     Console.WriteLine("Ingrese un numero: ");
+                    break;
+                case "1":
+                    __listingMenu.drawScreen();
                     break;
             }
             if(input == "3"){

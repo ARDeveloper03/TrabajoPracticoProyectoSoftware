@@ -6,6 +6,7 @@ public class ListingMenu : IScreen
 {
     public void drawScreen()
     {
+        Console.Clear();
         throw new NotImplementedException();
     }
 

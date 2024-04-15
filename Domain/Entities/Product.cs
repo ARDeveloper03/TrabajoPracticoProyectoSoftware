@@ -5,13 +5,14 @@ public class Product
     public Product()
     {
     }
-    public Product(Guid productId,string name, string description, decimal price,int categoryId, string imageurl)
+    public Product(Guid productId, string name, string description, decimal price,int categoryId, int discount ,string imageurl)
     {
         ProductId = productId;
         Name = name;
         Description = description;
         Price = price;
         CategoryId = categoryId;
+        Discount = discount;
         ImageUrl = imageurl;
     }
 

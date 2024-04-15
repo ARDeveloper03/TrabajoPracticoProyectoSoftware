@@ -26,7 +26,7 @@ public class Cart
         products = new List<Product>();
         return poppedProducts;
     }
-    public Dictionary<Product,int> popQuantity(){
+    public Dictionary<Product,int> popQuantities(){
         Dictionary<Product, int> poppedQuantities = new Dictionary<Product, int>(quantities);
         quantities = new Dictionary<Product, int>();
         return poppedQuantities;

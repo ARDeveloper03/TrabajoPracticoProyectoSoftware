@@ -2,5 +2,6 @@
 
 public interface IPurchaseCartServices
 {
-    public void purchaseCart();
+    public Task startPurchasingCart();
+    public Task finishPurchasingCart();
 }

@@ -16,24 +16,23 @@ using (var context = new RetailContext()){
     ProductQuery productQuery = new ProductQuery(context);
     SaleCommands saleCommands = new SaleCommands(context);
     SaleQuery saleQuery = new SaleQuery(context);
+    SaleProductCommands saleProductCommands = new SaleProductCommands(context);
+    SaleProductQuery saleProductQuery = new SaleProductQuery(context);
     CategoryServices categoryServices = new CategoryServices(commands, query);
     ProductServices productServices = new ProductServices(productCommands, productQuery);
     SaleServices saleServices = new SaleServices(saleCommands, saleQuery);
-    QueryServices queryServices = new QueryServices(categoryServices, productServices, saleServices);
-    //Testing
-    // Category firstOne = new Category();
-    // firstOne.CategoryId = 7;
-    // firstOne.Name = "Medicine";
-    // await categoryServices.CreateCategory(firstOne);
-    // Category chosenOne = await categoryServices.GetById(6);
-    // await categoryServices.DeleteCategory(chosenOne);
-    //Testing
-    var fetchedCategories = await queryServices.getProducts();
+    SaleProductServices saleProductServices = new SaleProductServices(saleProductCommands, saleProductQuery);
+    CommandServices commandServices = new CommandServices(categoryServices, productServices, saleServices, saleProductServices);
 
-    foreach(Product element in fetchedCategories){
-    Console.WriteLine("Id: " + element.ProductId);
-    Console.WriteLine("Name: " + element.Name);
-    Console.WriteLine("---------------------------");
-    }
-
+    QueryServices queryServices = new QueryServices(categoryServices, productServices, saleServices, saleProductServices);
+    List<Product> products = await queryServices.getProducts();
+    Cart cart = new Cart();
+    Product product1 = products[5];
+    Product product2 = products[7];
+    Console.WriteLine("Name: " + product1.Name);
+    Console.WriteLine("Name: " + product2.Name);
+    cart.addProduct(product1, 1);
+    cart.addProduct(product2, 1);
+    PurchaseCartServices purchaseCartServices = new PurchaseCartServices(cart, commandServices, queryServices);
+    
 }

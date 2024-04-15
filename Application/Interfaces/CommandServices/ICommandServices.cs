@@ -8,8 +8,8 @@ public interface ICommandServices
     public void removeProduct(Product product);
     public void insertCategory(Category category);
     public void removeCategory(Category category);
-    public void insertSale(Sale sale);
+    public Task insertSale(Sale sale);
     public void removeSale(Sale sale);
-    public void insertSaleProduct(SaleProduct saleProduct);
+    public Task insertSaleProduct(SaleProduct saleProduct);
     public void removeSaleProduct(SaleProduct saleProduct);
 }

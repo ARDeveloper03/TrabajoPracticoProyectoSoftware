@@ -3,23 +3,23 @@ using Domain.Entities;
 
 namespace Application.UseCase;
 
-public class SaleProductService : ISaleProductServices
+public class SaleProductServices : ISaleProductServices
 {
     private readonly ISaleProductCommands __command;
     private readonly ISaleProductQuery __query;
 
-    public SaleProductService(ISaleProductCommands command, ISaleProductQuery query)
+    public SaleProductServices(ISaleProductCommands command, ISaleProductQuery query)
     {
         __command = command;
         __query = query;
     }
 
-    public async Task createSale(SaleProduct saleProduct)
+    public async Task createSaleProduct(SaleProduct saleProduct)
     {
         await __command.insertSaleProduct(saleProduct);
     }
 
-    public async Task deleteSale(SaleProduct saleProduct)
+    public async Task deleteSaleProduct(SaleProduct saleProduct)
     {
         await __command.removeSaleProduct(saleProduct);
     }

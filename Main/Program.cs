@@ -26,13 +26,41 @@ using (var context = new RetailContext()){
 
     QueryServices queryServices = new QueryServices(categoryServices, productServices, saleServices, saleProductServices);
     List<Product> products = await queryServices.getProducts();
+    List<Category> categories = await queryServices.getCategories();
     Cart cart = new Cart();
     Product product1 = products[5];
     Product product2 = products[7];
-    Console.WriteLine("Name: " + product1.Name);
-    Console.WriteLine("Name: " + product2.Name);
-    cart.addProduct(product1, 1);
-    cart.addProduct(product2, 1);
+    Product product3 = products[6];
+    Product product4 = products[8];
+    Product product5 = products[12];
+    Product product6 = products[11];
+    Product product7 = products[10];
+    Product product8 = products[3];
+    Product product9 = products[1];
+    Product product10 = products[29];
+    Product product11 = products[23];
+    // cart.addProduct(product1, 324);
+    // cart.addProduct(product2, 754);
+    // cart.addProduct(product3, 3244);
+    // cart.addProduct(product4, 72);
+    // cart.addProduct(product5, 54);
+    // cart.addProduct(product6, 334);
+    // cart.addProduct(product7, 735);
+    // cart.addProduct(product8, 854);
+    // cart.addProduct(product9, 1111);
+    // cart.addProduct(product10, 222);
+    // cart.addProduct(product11, 333);
     PurchaseCartServices purchaseCartServices = new PurchaseCartServices(cart, commandServices, queryServices);
-    
+
+    //Testing MAINMENU
+    CartMenu cartMenu = new CartMenu(cart ,purchaseCartServices);
+    ListingMenu listingMenu = new ListingMenu(cart, products, categories);
+    MainMenu mainMenu = new MainMenu(cartMenu, listingMenu);
+    // cartMenu.drawScreen();
+    mainMenu.drawScreen();
+    // foreach(Product product in products){
+    //     Console.WriteLine("A category");
+    //     Console.WriteLine(product.Category);
+    // }
+
 }

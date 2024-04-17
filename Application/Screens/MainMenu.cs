@@ -1,4 +1,6 @@
 ﻿using Application.Interfaces;
+using Application.UseCase;
+using Domain.Entities;
 
 namespace Application.Screens;
 
@@ -6,7 +8,7 @@ public class MainMenu : IScreen
 {
     private readonly IScreen __cartMenu;
     private readonly IScreen __listingMenu;
-
+    private string dash = new string('-', 130);
     public MainMenu(IScreen cartMenu, IScreen listingMenu)
     {
         __cartMenu = cartMenu;
@@ -15,30 +17,45 @@ public class MainMenu : IScreen
 
     public async void drawScreen()
     {
+        bool run = true;
         string input = "0";        
-        while(true){
+        while(run){
 
             switch(input){
                 case "0":
+                    Console.WriteLine(dash);
                     Console.WriteLine("Elija una opcion: ");
                     Console.WriteLine("Opcion 1: Listado de Productos");
                     Console.WriteLine("Opcion 2: Carrito de compra");
                     Console.WriteLine("Opcion 3: Salir de la aplicacion");
                     Console.WriteLine("Ingrese un numero: ");
+                    Console.WriteLine(dash);
                     break;
                 case "1":
                     __listingMenu.drawScreen();
+                    Console.WriteLine(dash);
+                    Console.WriteLine("Elija una opcion: ");
+                    Console.WriteLine("Opcion 1: Listado de Productos");
+                    Console.WriteLine("Opcion 2: Carrito de compra");
+                    Console.WriteLine("Opcion 3: Salir de la aplicacion");
+                    Console.WriteLine("Ingrese un numero: ");
+                    Console.WriteLine(dash);
+                    break;
+                case "2":
+                    __cartMenu.drawScreen();
+                    Console.WriteLine(dash);
+                    Console.WriteLine("Elija una opcion: ");
+                    Console.WriteLine("Opcion 1: Listado de Productos");
+                    Console.WriteLine("Opcion 2: Carrito de compra");
+                    Console.WriteLine("Opcion 3: Salir de la aplicacion");
+                    Console.WriteLine("Ingrese un numero: ");
+                    Console.WriteLine(dash);
                     break;
             }
             if(input == "3"){
-                Console.WriteLine("Exiting");
                 break;
             }
-            Task<string> buffer =  this.readInput();
-            input = await buffer;
+        input = await Console.In.ReadLineAsync();
         }
-    }
-    public async Task<string> readInput(){
-        return await Console.In.ReadLineAsync();
     }
 }

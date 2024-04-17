@@ -27,14 +27,18 @@ public class RetailContext : DbContext
             entity.HasKey(e => e.ShoppingCartId);
             entity.Property(t => t.ShoppingCartId).ValueGeneratedOnAdd();
         });
-        // modelBuilder.Entity<Product>(entity =>{
-        //     entity.ToTable("Products");
-        //     entity.HasKey(e => e.ProductId);
-        //     entity.HasOne<Category>(sc => sc.Category)
-        //             .WithMany(ad => ad.Products)
-        //             .HasForeignKey(ad => ad.CategoryId);
+        modelBuilder.Entity<Product>(entity =>{
+            entity.ToTable("Products");
+            entity.HasKey(e => e.ProductId);
+            entity.HasOne<Category>(sc => sc.Category)
+                    .WithMany(ad => ad.Products)
+                    .HasForeignKey(ad => ad.CategoryId);
 
-        // });
+        });
+        modelBuilder.Entity<Category>(entity =>{
+            entity.ToTable("Category");
+            entity.HasKey(e => e.CategoryId);
+        });
         modelBuilder.Entity<Category>().HasData(
             category1,
             category2,

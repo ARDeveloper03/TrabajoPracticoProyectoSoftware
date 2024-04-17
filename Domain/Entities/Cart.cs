@@ -26,10 +26,16 @@ public class Cart
         products = new List<Product>();
         return poppedProducts;
     }
+    public List<Product> getProducts(){
+        return products;
+    }
     public Dictionary<Product,int> popQuantities(){
         Dictionary<Product, int> poppedQuantities = new Dictionary<Product, int>(quantities);
         quantities = new Dictionary<Product, int>();
         return poppedQuantities;
+    }
+    public Dictionary<Product, int> getQuantities(){
+        return quantities;
     }
     public void disposeCart(){
         products = new List<Product>();

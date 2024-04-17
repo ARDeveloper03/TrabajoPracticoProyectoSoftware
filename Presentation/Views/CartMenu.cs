@@ -1,7 +1,6 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
-
-namespace Application.Screens;
+namespace Presentation.Views;
 
 public class CartMenu : IScreen
 {

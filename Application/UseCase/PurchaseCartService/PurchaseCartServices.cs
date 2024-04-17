@@ -6,8 +6,8 @@ namespace Application.UseCase;
 public class PurchaseCartServices : IPurchaseCartServices
 {
     private readonly Cart __cart;
-    private readonly ICommandServices __commandServices;
-    private readonly IQueryServices __queryServices;
+    private readonly ISaleServices __saleServices;
+    private readonly ISaleProductServices __saleProductServices;
     private List<Product> products;
     private Dictionary<Product, int> quantities;
     private List<SaleProduct> saleProducts;
@@ -16,14 +16,15 @@ public class PurchaseCartServices : IPurchaseCartServices
     private decimal total;
     private decimal totalDiscount;
     private decimal taxes = (decimal)1.21;
-    public PurchaseCartServices(Cart cart, ICommandServices commandServices, IQueryServices queryServices)
+    public PurchaseCartServices(Cart cart, ISaleServices saleServices, ISaleProductServices saleProductServices)
     {
         products = new List<Product>();
         quantities = new Dictionary<Product, int>();
         saleProducts = new List<SaleProduct>();
         __cart = cart;
-        __commandServices = commandServices;
-        __queryServices = queryServices;
+        __saleServices = saleServices;
+        __saleProductServices = saleProductServices;
+        
     }
     public void retrieveProducts(){
         quantities = __cart.popQuantities();
@@ -49,7 +50,7 @@ public class PurchaseCartServices : IPurchaseCartServices
     }
     public async Task insertSale(){
         currentSale = new Sale(total, subTotal, totalDiscount, taxes, DateTime.Now);
-        await __commandServices.insertSale(currentSale);
+        await __saleServices.createSale(currentSale);
     }
     public async Task startPurchasingCart(){
         retrieveProducts();
@@ -70,7 +71,7 @@ public class PurchaseCartServices : IPurchaseCartServices
         }
     }
     public async Task insertion(SaleProduct saleProduct){
-        await __commandServices.insertSaleProduct(saleProduct);
+        await __saleProductServices.createSaleProduct(saleProduct);
     }
     public void resetServices(){
         products = new List<Product>();

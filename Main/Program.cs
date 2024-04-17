@@ -1,12 +1,12 @@
 ﻿//Implement dependency injection
 using Application.Interfaces;
-using Application.Screens;
 using Application.UseCase;
 using Domain.Entities;
 using Infrastructure;
 using Infrastructure.Command;
 using Infrastructure.Persistence;
 using Infrastructure.Query;
+using Presentation.Views;
 
 using (var context = new RetailContext()){
     context.Database.EnsureCreated();
@@ -22,11 +22,9 @@ using (var context = new RetailContext()){
     ProductServices productServices = new ProductServices(productCommands, productQuery);
     SaleServices saleServices = new SaleServices(saleCommands, saleQuery);
     SaleProductServices saleProductServices = new SaleProductServices(saleProductCommands, saleProductQuery);
-    CommandServices commandServices = new CommandServices(categoryServices, productServices, saleServices, saleProductServices);
 
-    QueryServices queryServices = new QueryServices(categoryServices, productServices, saleServices, saleProductServices);
-    List<Product> products = await queryServices.getProducts();
-    List<Category> categories = await queryServices.getCategories();
+    List<Product> products = await productServices.getAll();
+    List<Category> categories = await categoryServices.getAll();
     Cart cart = new Cart();
     Product product1 = products[5];
     Product product2 = products[7];
@@ -50,7 +48,7 @@ using (var context = new RetailContext()){
     // cart.addProduct(product9, 1111);
     // cart.addProduct(product10, 222);
     // cart.addProduct(product11, 333);
-    PurchaseCartServices purchaseCartServices = new PurchaseCartServices(cart, commandServices, queryServices);
+    PurchaseCartServices purchaseCartServices = new PurchaseCartServices(cart, saleServices, saleProductServices);
 
     //Testing MAINMENU
     CartMenu cartMenu = new CartMenu(cart ,purchaseCartServices);

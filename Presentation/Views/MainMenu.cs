@@ -1,8 +1,5 @@
 ﻿using Application.Interfaces;
-using Application.UseCase;
-using Domain.Entities;
-
-namespace Application.Screens;
+namespace Presentation.Views;
 
 public class MainMenu : IScreen
 {

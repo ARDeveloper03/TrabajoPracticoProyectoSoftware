@@ -68,3 +68,5 @@ c:\Users\Pc\Desktop\Uni\Proyecto_Software\Trabajo_Practico_1\Main\obj\Debug\net8
 c:\Users\Pc\Desktop\Uni\Proyecto_Software\Trabajo_Practico_1\Main\obj\Debug\net8.0\Main.genruntimeconfig.cache
 c:\Users\Pc\Desktop\Uni\Proyecto_Software\Trabajo_Practico_1\Main\obj\Debug\net8.0\ref\Main.dll
 c:\Users\Pc\Desktop\Uni\Proyecto_Software\Trabajo_Practico_1\Main\obj\Debug\net8.0\Main.sourcelink.json
+c:\Users\Pc\Desktop\Uni\Proyecto_Software\Trabajo_Practico_1\Main\bin\Debug\net8.0\Presentation.dll
+c:\Users\Pc\Desktop\Uni\Proyecto_Software\Trabajo_Practico_1\Main\bin\Debug\net8.0\Presentation.pdb

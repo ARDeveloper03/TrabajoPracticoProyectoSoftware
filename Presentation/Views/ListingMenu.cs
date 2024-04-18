@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
 namespace Presentation.Views;
-public class ListingMenu : IScreen
+public class ListingMenu : IView
 {
     private Cart cart;
     private List<Product> products;
@@ -100,25 +100,19 @@ public class ListingMenu : IScreen
         }
         for(int i = lowerIndex; i < upperIndex; i++){
             Product currentProduct = products[i];
-            string categoryName = "";
-            foreach(Category category in categories){
-                if(category.CategoryId == currentProduct.CategoryId){
-                    categoryName = category.Name;
-                }
-            }
-            List<string> data = new List<string>{$"| {i + 1}", currentProduct.Name, categoryName, currentProduct.Discount.ToString(), currentProduct.Price.ToString()};
+            List<string> data = new List<string>{$"| {i + 1}", currentProduct.Name, currentProduct.Category.Name, currentProduct.Discount.ToString() + "%", currentProduct.Price.ToString()};
+            string substring = "";
             foreach(string element in data){
-                int it = 0;
-                newSection = new List<char>(section);
-                foreach(char character in element){
-                    newSection[it] = character;
-                    it++;
-                if(it == section.Count - 1){
-                    break;
+                int length = element.Length;
+                if(length >= 26){
+                    substring += element.Substring(0, 25) + "|"; 
+                }
+                else{
+                    string spaces = new string(' ', 25 - length);
+                    substring += element + spaces + "|";
                 }
             }
-            Console.Write(string.Join("", newSection));            
-            }
+            Console.Write(substring);
             Console.WriteLine("");
         }
         Console.WriteLine(dash);
@@ -181,7 +175,7 @@ public class ListingMenu : IScreen
         Console.WriteLine(dash);
         Console.WriteLine("|Nombre: " + product.Name + " |");
         Console.WriteLine("|Categoria: " + categoryName + " |");
-        Console.WriteLine("|Descuento: " + product.Discount + " |");
+        Console.WriteLine("|Descuento: " + product.Discount + "% |");
         Console.WriteLine("|Precio: " + product.Price + " |");
         Console.WriteLine("|Descripcion: " + product.Description + " |");
         Console.WriteLine(dash);

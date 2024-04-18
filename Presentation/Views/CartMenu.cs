@@ -2,9 +2,10 @@
 using Domain.Entities;
 namespace Presentation.Views;
 
-public class CartMenu : IScreen
+public class CartMenu : IView
 {
     private readonly IPurchaseCartServices __purchaseService;
+    private Cart cart;
     private List<Product> products;
     private Dictionary<Product, int> quantities;
     private string dash;
@@ -17,9 +18,8 @@ public class CartMenu : IScreen
 
     public CartMenu(Cart cart, IPurchaseCartServices purchaseService)
     {
+        this.cart = cart;
         __purchaseService = purchaseService;
-        products = cart.getProducts();
-        quantities = cart.getQuantities();
         dash = new string('-', 130);
         section = new List<char>() {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'};
         headers = new List<string>{"Nombre", "Descuento Unitario", "Cantidad", "Precio Unitario", "Subtotal"};
@@ -69,6 +69,8 @@ public class CartMenu : IScreen
                     Task.WaitAll(start);
                     var finish = __purchaseService.finishPurchasingCart();
                     Task.WaitAll(finish);
+                    products = new List<Product>();
+                    quantities = new Dictionary<Product, int>();
                     Console.WriteLine("Compra realizada con exito!");
                     Console.WriteLine("Presione cualquier tecla para continuar: ");
                     Console.ReadLine();
@@ -96,6 +98,8 @@ public class CartMenu : IScreen
         Console.WriteLine(dash);
         }
     public void drawMiddleSection(){
+        products = cart.getProducts();
+        quantities = cart.getQuantities();
         int lowerIndex = currentPage * 10;
         int upperIndex = lowerIndex + 10;
         if(upperIndex > products.Count - 1){
@@ -103,8 +107,8 @@ public class CartMenu : IScreen
         }
         for(int i = lowerIndex; i < upperIndex; i++){
             Product currentProduct = products[i];
-            decimal subtotal = (currentProduct.Price * quantities[currentProduct]) - (currentProduct.Discount * quantities[currentProduct]);
-            List<string> data = new List<string>{currentProduct.Name, currentProduct.Discount.ToString(), quantities[currentProduct].ToString(), currentProduct.Price.ToString(), subtotal.ToString()};
+            decimal subtotal = currentProduct.Price * quantities[currentProduct];
+            List<string> data = new List<string>{currentProduct.Name, currentProduct.Discount.ToString() + "%", quantities[currentProduct].ToString(), currentProduct.Price.ToString(), subtotal.ToString()};
             foreach(string element in data){
                 int it = 0;
                 newSection = new List<char>(section);

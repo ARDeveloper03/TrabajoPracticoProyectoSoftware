@@ -1,6 +1,6 @@
 ﻿namespace Application.Interfaces;
 
-public interface IScreen
+public interface IView
 {
     void drawScreen();
 }

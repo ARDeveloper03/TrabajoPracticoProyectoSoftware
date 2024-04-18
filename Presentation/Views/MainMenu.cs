@@ -1,12 +1,12 @@
 ﻿using Application.Interfaces;
 namespace Presentation.Views;
 
-public class MainMenu : IScreen
+public class MainMenu : IView
 {
-    private readonly IScreen __cartMenu;
-    private readonly IScreen __listingMenu;
+    private readonly IView __cartMenu;
+    private readonly IView __listingMenu;
     private string dash = new string('-', 130);
-    public MainMenu(IScreen cartMenu, IScreen listingMenu)
+    public MainMenu(IView cartMenu, IView listingMenu)
     {
         __cartMenu = cartMenu;
         __listingMenu = listingMenu;

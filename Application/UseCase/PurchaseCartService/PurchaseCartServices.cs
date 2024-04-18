@@ -15,7 +15,7 @@ public class PurchaseCartServices : IPurchaseCartServices
     private decimal subTotal;
     private decimal total;
     private decimal totalDiscount;
-    private decimal taxes = (decimal)1.21;
+    private decimal taxes = 1.21m;
     public PurchaseCartServices(Cart cart, ISaleServices saleServices, ISaleProductServices saleProductServices)
     {
         products = new List<Product>();
@@ -31,18 +31,14 @@ public class PurchaseCartServices : IPurchaseCartServices
         products = __cart.popProducts();
     }
 
-    public void computeSubTotal(){
+    public void computeSubTotalAndTotalDiscount(){
         foreach(Product element in products){
-            decimal unitPrice = element.Price;
+            decimal percentage = element.Discount / 100m;
+            decimal unitPrice = element.Price;        
+            decimal unitDiscount = element.Price * percentage;    
             int amount = quantities[element];
             subTotal += amount*unitPrice;
-        }
-    }
-    public void computeTotalDiscount(){
-        foreach(Product element in products){
-            decimal unitDiscount = element.Discount;
-            int amount = quantities[element];
-            totalDiscount = amount*unitDiscount;
+            totalDiscount += amount*unitDiscount;
         }
     }
     public void computeTotal(){
@@ -54,8 +50,7 @@ public class PurchaseCartServices : IPurchaseCartServices
     }
     public async Task startPurchasingCart(){
         retrieveProducts();
-        computeSubTotal();
-        computeTotalDiscount();
+        computeSubTotalAndTotalDiscount();
         computeTotal();
         await insertSale();
     }

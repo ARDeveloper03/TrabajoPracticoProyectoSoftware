@@ -15,7 +15,7 @@ public class PurchaseCartServices : IPurchaseCartServices
     private decimal subTotal;
     private decimal total;
     private decimal totalDiscount;
-    private decimal taxes = 1.21m;
+    private decimal taxes = 21m;
     public PurchaseCartServices(Cart cart, ISaleServices saleServices, ISaleProductServices saleProductServices)
     {
         products = new List<Product>();
@@ -33,16 +33,19 @@ public class PurchaseCartServices : IPurchaseCartServices
 
     public void computeSubTotalAndTotalDiscount(){
         foreach(Product element in products){
-            decimal percentage = element.Discount / 100m;
             decimal unitPrice = element.Price;        
-            decimal unitDiscount = element.Price * percentage;    
             int amount = quantities[element];
             subTotal += amount*unitPrice;
-            totalDiscount += amount*unitDiscount;
+            if(element.Discount > 0){
+                decimal percentage = element.Discount / 100m;
+                decimal unitDiscount = element.Price * percentage;   
+                totalDiscount += amount*unitDiscount;
+            }
+            
         }
     }
     public void computeTotal(){
-        total = (subTotal - totalDiscount) * taxes;
+        total = (subTotal - totalDiscount) * (1 + (taxes / 100m));
     }
     public async Task insertSale(){
         currentSale = new Sale(total, subTotal, totalDiscount, taxes, DateTime.Now);
@@ -70,7 +73,8 @@ public class PurchaseCartServices : IPurchaseCartServices
     }
     public void resetServices(){
         products = new List<Product>();
-        quantities = new Dictionary<Product, int>();        
+        quantities = new Dictionary<Product, int>(); 
+        saleProducts = new List<SaleProduct>();      
         subTotal = 0;
         total = 0;
         totalDiscount = 0;
@@ -78,5 +82,6 @@ public class PurchaseCartServices : IPurchaseCartServices
     public async Task finishPurchasingCart(){
         createSaleProducts();
         await insertSaleProducts();
+        resetServices();
     }
 }

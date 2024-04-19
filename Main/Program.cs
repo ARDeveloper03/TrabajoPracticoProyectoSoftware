@@ -1,12 +1,10 @@
-﻿//Implement dependency injection
-using Application.Interfaces;
-using Application.UseCase;
+﻿using Application.UseCase;
 using Domain.Entities;
-using Infrastructure;
 using Infrastructure.Command;
 using Infrastructure.Persistence;
 using Infrastructure.Query;
 using Presentation.Views;
+
 
 using (var context = new RetailContext()){
     context.Database.EnsureCreated();
@@ -36,3 +34,4 @@ using (var context = new RetailContext()){
     MainMenu mainMenu = new MainMenu(cartMenu, listingMenu);
     mainMenu.drawScreen();
 }
+

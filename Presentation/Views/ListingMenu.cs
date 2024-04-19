@@ -37,42 +37,32 @@ public class ListingMenu : IView
                     drawTopSection();
                     drawMiddleSection();
                     drawBottomSection();
+                    input = await Console.In.ReadLineAsync();
                     break;
                 case "1":
                     drawAddingItemToCartBox();
-                    drawTopSection();
-                    drawMiddleSection();
-                    drawBottomSection();
+                    input = "0";
                     break;
                 case "2":
                     if(currentPage > 0){
-                        currentPage -= 1;
-                        Console.WriteLine("NEW PAGE");
-                        drawTopSection();
-                        drawMiddleSection();
-                        drawBottomSection();
+                        currentPage -= 1;                        
                     }
+                    input = "0";
                     break;
                 case "3":
                     if(currentPage < (products.Count / 10)){
-                        currentPage += 1;
-                        Console.WriteLine("NEW PAGE");
-                        drawTopSection();
-                        drawMiddleSection();
-                        drawBottomSection();
+                        currentPage += 1;                        
                     }
+                    input = "0";
                     break;
                 case "4":
                     drawProductDetailScreen();
-                    drawTopSection();
-                    drawMiddleSection();
-                    drawBottomSection();
+                    input = "0";
                     break;
             }
             if(input == "5"){
                 break;
-            }
-            input = await Console.In.ReadLineAsync();
+            }            
         }
 
 
@@ -145,40 +135,63 @@ public class ListingMenu : IView
 
         Console.WriteLine(dash);
         Console.WriteLine("Ingresa el ID del producto a agregar en el carrito: ");
-        int id = int.Parse(Console.ReadLine());
-        Console.WriteLine("Ingrese la cantidad de productos a agregar en el carrito: ");
-        int quantity = int.Parse(Console.ReadLine());
-        if(products.Count > id){
-            Product addedProduct = products[id - 1];
-            cart.addProduct(addedProduct, quantity);
+        string IDInput = Console.ReadLine();
+        int id;
+        bool success = int.TryParse(IDInput, out id);
+        if(success){
+            if(id > 0  && id < products.Count){
+                Console.WriteLine("Ingrese la cantidad de productos a agregar en el carrito: ");
+                int quantity;
+                string quantityInput = Console.ReadLine();
+                success = int.TryParse(quantityInput, out quantity);
+                if(success && quantity > 0){
+                    Product addedProduct = products[id - 1];
+                    cart.addProduct(addedProduct, quantity);
+                    Console.WriteLine("Producto agregado con exito");
+                }
+                else{
+                    Console.WriteLine("Cantidad erronea");
+                }
+            }
+            else{
+                Console.WriteLine("Id invalido");
+            }
         }
-    }
-    public void seeProduct(){
+        else{
+            Console.WriteLine("Id invalido");
+        }
 
-        Console.WriteLine(dash);
-        Console.WriteLine("Ingresa el ID del producto a ver: ");
-        int id = int.Parse(Console.ReadLine());
+        Console.WriteLine("Presione cualquier tecla para continuar");
+        Console.ReadLine();
     }
+
     public void drawProductDetailScreen()
     {
         Console.WriteLine(dash);
         Console.WriteLine("Ingrese el ID del producto: ");
         Console.WriteLine(dash);
-        int id = int.Parse(Console.ReadLine());
-        Product product = products[id - 1];
-        string categoryName = "";
-        foreach(Category element in categories){
-            if(element.CategoryId == product.CategoryId){
-                categoryName = element.Name;
+        int id;
+        string IDInput = Console.ReadLine();
+        bool success = int.TryParse(IDInput, out id);
+        if(success && id > 0){
+            Product product = products[id - 1];
+            string categoryName = "";
+            foreach(Category element in categories){
+                if(element.CategoryId == product.CategoryId){
+                    categoryName = element.Name;
+                }
             }
+            Console.WriteLine(dash);
+            Console.WriteLine("|Nombre: " + product.Name + " |");
+            Console.WriteLine("|Categoria: " + categoryName + " |");
+            Console.WriteLine("|Descuento: " + product.Discount + "% |");
+            Console.WriteLine("|Precio: " + product.Price + " |");
+            Console.WriteLine("|Descripcion: " + product.Description + " |");
+            Console.WriteLine(dash);
         }
-        Console.WriteLine(dash);
-        Console.WriteLine("|Nombre: " + product.Name + " |");
-        Console.WriteLine("|Categoria: " + categoryName + " |");
-        Console.WriteLine("|Descuento: " + product.Discount + "% |");
-        Console.WriteLine("|Precio: " + product.Price + " |");
-        Console.WriteLine("|Descripcion: " + product.Description + " |");
-        Console.WriteLine(dash);
+        else{
+            Console.WriteLine("Id invalido");
+        }
         Console.WriteLine("Presione cualquier tecla para volver al listado: ");
         Console.ReadLine();
     }

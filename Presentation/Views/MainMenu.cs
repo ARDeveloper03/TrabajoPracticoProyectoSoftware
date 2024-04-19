@@ -27,32 +27,24 @@ public class MainMenu : IView
                     Console.WriteLine("Opcion 3: Salir de la aplicacion");
                     Console.WriteLine("Ingrese un numero: ");
                     Console.WriteLine(dash);
+                    input = await Console.In.ReadLineAsync();
                     break;
                 case "1":
                     __listingMenu.drawScreen();
-                    Console.WriteLine(dash);
-                    Console.WriteLine("Elija una opcion: ");
-                    Console.WriteLine("Opcion 1: Listado de Productos");
-                    Console.WriteLine("Opcion 2: Carrito de compra");
-                    Console.WriteLine("Opcion 3: Salir de la aplicacion");
-                    Console.WriteLine("Ingrese un numero: ");
-                    Console.WriteLine(dash);
+                    input = "0";
                     break;
                 case "2":
                     __cartMenu.drawScreen();
-                    Console.WriteLine(dash);
-                    Console.WriteLine("Elija una opcion: ");
-                    Console.WriteLine("Opcion 1: Listado de Productos");
-                    Console.WriteLine("Opcion 2: Carrito de compra");
-                    Console.WriteLine("Opcion 3: Salir de la aplicacion");
-                    Console.WriteLine("Ingrese un numero: ");
-                    Console.WriteLine(dash);
+                    input = "0";
+                    break;
+                default:
+                    input = "0";
                     break;
             }
             if(input == "3"){
                 break;
             }
-        input = await Console.In.ReadLineAsync();
+        
         }
     }
 }

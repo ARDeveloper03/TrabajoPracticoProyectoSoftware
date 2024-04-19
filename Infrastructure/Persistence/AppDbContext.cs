@@ -22,11 +22,18 @@ public class RetailContext : DbContext
         var category9 = new Category(9, "Libros y Material Educativo");
         var category10 = new Category(10, "Jardineria y Bricolaje");
 
-        modelBuilder.Entity<SaleProduct>(entity =>{
-            entity.ToTable("SaleProduct");
-            entity.HasKey(e => e.ShoppingCartId);
-            entity.Property(t => t.ShoppingCartId).ValueGeneratedOnAdd();
+
+        modelBuilder.Entity<Sale>(entity => {
+            entity.ToTable("Sales");
+            entity.HasKey(s => s.SaleId);
+            
+            entity.Property(tp => tp.TotalPay).IsRequired();
+            entity.Property(st => st.Subtotal).IsRequired();
+            entity.Property(td => td.TotalDiscount).IsRequired();
+            entity.Property(t => t.Taxes).IsRequired();
+            entity.Property(d => d.Date).IsRequired();
         });
+
         modelBuilder.Entity<Product>(entity =>{
             entity.ToTable("Products");
             entity.HasKey(e => e.ProductId);
@@ -34,10 +41,23 @@ public class RetailContext : DbContext
                     .WithMany(ad => ad.Products)
                     .HasForeignKey(ad => ad.CategoryId);
 
+            entity.Property(p => p.Name).HasMaxLength(100);
+            entity.Property(pr => pr.Price).IsRequired();
+
+        });
+        modelBuilder.Entity<SaleProduct>(entity =>{
+            entity.ToTable("SaleProduct");
+            entity.HasKey(e => e.ShoppingCartId);
+
+            entity.Property(t => t.ShoppingCartId).ValueGeneratedOnAdd();
+            entity.Property(q => q.Quantity).IsRequired();
+            entity.Property(pr => pr.Price).IsRequired();
         });
         modelBuilder.Entity<Category>(entity =>{
             entity.ToTable("Category");
             entity.HasKey(e => e.CategoryId);
+
+            entity.Property(c => c.Name).HasMaxLength(100);
         });
         modelBuilder.Entity<Category>().HasData(
             category1,
@@ -97,7 +117,7 @@ public class RetailContext : DbContext
         var product44 = new Product {ProductId = Guid.NewGuid(), Name = "Notebook Noblex 14 HD CEL N4020C / 4GB/ 128GB SSD", Description = "Notebook", Price = 563019.00m, CategoryId = 2, Discount = 55, ImageUrl = "https://carrefourar.vtexassets.com/arquivos/ids/395378-1600-auto?v=638327142469700000&width=1600&height=auto&aspect=true"};
         var product45 = new Product {ProductId = Guid.NewGuid(), Name = "Consola PS5 HW digital God Of War Bundle", Description = "Control Inalámbrico DualSense™, Almacenamiento 825GB SSD, Base, Cable HDMI®, Cable AC, Cable USB, Manuales, ASTRO’s PLAYROOM (Juego pre-instalado. La consola puede necesitar actualizarse a la última versión de software disponible. Se requiere una conexión a Internet.)", Price = 999999.00m, CategoryId = 2, Discount = 45, ImageUrl = "https://carrefourar.vtexassets.com/arquivos/ids/411702-1600-auto?v=638348759090700000&width=1600&height=auto&aspect=true"};
         var product46 = new Product {ProductId = Guid.NewGuid(), Name = "Celular libre Samsung Galaxy A04 128GB negro", Description = "Cargador | Data Cable | Guia de Inicio Rapido | Eject Pin", Price = 314000.00m, CategoryId = 2, Discount = 20, ImageUrl = "https://carrefourar.vtexassets.com/arquivos/ids/266137-1600-auto?v=638050042967430000&width=1600&height=auto&aspect=true"};
-        var product47 = new Product {ProductId = Guid.NewGuid(), Name = "Celular libre Motorola g23 4gb 128gb blanco", Description = "Celular libre", Price = 399999.00m, CategoryId = 2, Discount = 100, ImageUrl = "https://carrefourar.vtexassets.com/arquivos/ids/367471-1600-auto?v=638283212666130000&width=1600&height=auto&aspect=true"};        
+        var product47 = new Product {ProductId = Guid.NewGuid(), Name = "Celular libre Motorola g23 4gb 128gb blanco", Description = "Celular libre", Price = 399999.00m, CategoryId = 2, Discount = 30, ImageUrl = "https://carrefourar.vtexassets.com/arquivos/ids/367471-1600-auto?v=638283212666130000&width=1600&height=auto&aspect=true"};        
 
         modelBuilder.Entity<Product>().HasData(
             product1,

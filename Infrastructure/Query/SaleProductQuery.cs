@@ -2,7 +2,7 @@
 using Domain.Entities;
 using Infrastructure.Persistence;
 
-namespace Infrastructure;
+namespace Infrastructure.Query;
 
 public class SaleProductQuery : ISaleProductQuery
 {

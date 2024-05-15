@@ -24,4 +24,5 @@ public class Product
     public int CategoryId {get;set;}
     public int Discount {get;set;}
     public string ImageUrl {get;set;}
+    public IList<SaleProduct> SaleProducts {get;set;}
 }

@@ -24,9 +24,10 @@ public class RetailContext : DbContext
 
 
         modelBuilder.Entity<Sale>(entity => {
-            entity.ToTable("Sales");
+            entity.ToTable("Sale");
             entity.HasKey(s => s.SaleId);
             
+            entity.Property(si => si.SaleId).ValueGeneratedOnAdd();
             entity.Property(tp => tp.TotalPay).IsRequired();
             entity.Property(st => st.Subtotal).IsRequired();
             entity.Property(td => td.TotalDiscount).IsRequired();
@@ -35,29 +36,44 @@ public class RetailContext : DbContext
         });
 
         modelBuilder.Entity<Product>(entity =>{
-            entity.ToTable("Products");
+            entity.ToTable("Product");
             entity.HasKey(e => e.ProductId);
             entity.HasOne<Category>(sc => sc.Category)
                     .WithMany(ad => ad.Products)
-                    .HasForeignKey(ad => ad.CategoryId);
+                    .HasForeignKey(ad => ad.CategoryId)
+                    .IsRequired();
 
-            entity.Property(p => p.Name).HasMaxLength(100);
+            entity.Property(p => p.Name)
+                    .HasMaxLength(100)
+                    .IsRequired();
+            entity.Property(pd => pd.Description).HasMaxLength(int.MaxValue);
             entity.Property(pr => pr.Price).IsRequired();
-
+            entity.Property(pi => pi.ImageUrl).HasMaxLength(int.MaxValue);
         });
+
         modelBuilder.Entity<SaleProduct>(entity =>{
             entity.ToTable("SaleProduct");
             entity.HasKey(e => e.ShoppingCartId);
-
+            entity.HasOne(sps => sps.SaleInstance)
+                    .WithMany(sp => sp.SaleProducts)
+                    .HasForeignKey(sp => sp.Sale)
+                    .IsRequired();
+            entity.HasOne(spp => spp.ProductInstance)
+                    .WithMany(sp => sp.SaleProducts)
+                    .HasForeignKey(sp => sp.Product)
+                    .IsRequired();
+            
             entity.Property(t => t.ShoppingCartId).ValueGeneratedOnAdd();
             entity.Property(q => q.Quantity).IsRequired();
             entity.Property(pr => pr.Price).IsRequired();
         });
+
         modelBuilder.Entity<Category>(entity =>{
             entity.ToTable("Category");
             entity.HasKey(e => e.CategoryId);
 
-            entity.Property(c => c.Name).HasMaxLength(100);
+            entity.Property(ci => ci.CategoryId).ValueGeneratedOnAdd();
+            entity.Property(cn => cn.Name).HasMaxLength(100);
         });
         modelBuilder.Entity<Category>().HasData(
             category1,
@@ -171,6 +187,6 @@ public class RetailContext : DbContext
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-    optionsBuilder.UseSqlServer("Server=localhost;Database=RetailDB;Trusted_Connection=True;Trust Server Certificate=true");
+    optionsBuilder.UseSqlServer("Server=localhost;Database=OldRetailDB;Trusted_Connection=True;Trust Server Certificate=true");
     }
 } 

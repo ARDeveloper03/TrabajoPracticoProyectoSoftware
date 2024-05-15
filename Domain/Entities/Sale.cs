@@ -20,4 +20,5 @@ public class Sale
     public decimal TotalDiscount {get;set;}
     public decimal Taxes {get;set;}
     public DateTime Date {get;set;}
+    public IList<SaleProduct> SaleProducts {get;set;}
 }

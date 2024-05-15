@@ -2805,11 +2805,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Presentation\\Presentation.csproj",
+      "projectUniqueName": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Presentation\\Presentation.csproj",
       "projectName": "Presentation",
-      "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Presentation\\Presentation.csproj",
+      "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Presentation\\Presentation.csproj",
       "packagesPath": "C:\\Users\\Pc\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Presentation\\obj\\",
+      "outputPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2826,8 +2826,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Infrastructure\\Infrastructure.csproj"
+            "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

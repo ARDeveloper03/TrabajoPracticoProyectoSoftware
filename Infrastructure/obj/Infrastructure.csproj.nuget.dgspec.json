@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Infrastructure\\Infrastructure.csproj": {}
+    "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Application\\Application.csproj": {
+    "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Application\\Application.csproj",
+        "projectUniqueName": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Application\\Application.csproj",
+        "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Pc\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Application\\obj\\",
+        "outputPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Domain\\Domain.csproj": {
-                "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Domain\\Domain.csproj"
+              "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Domain\\Domain.csproj": {
+                "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Domain\\Domain.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Domain\\Domain.csproj": {
+    "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Domain\\Domain.csproj",
+        "projectUniqueName": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Domain\\Domain.csproj",
+        "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Pc\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Domain\\obj\\",
+        "outputPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -128,14 +128,14 @@
         }
       }
     },
-    "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Infrastructure\\Infrastructure.csproj": {
+    "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Pc\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Infrastructure\\obj\\",
+        "outputPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -152,8 +152,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Application\\Application.csproj": {
-                "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Trabajo_Practico_1\\Application\\Application.csproj"
+              "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Application\\Application.csproj": {
+                "projectPath": "c:\\Users\\Pc\\Desktop\\Uni\\Proyecto_Software\\Reentrega_Tp1\\Application\\Application.csproj"
               }
             }
           }

@@ -59,7 +59,7 @@ public class PurchaseCartServices : IPurchaseCartServices
     }
     public void createSaleProducts(){
         foreach(Product element in products){
-            SaleProduct currentSaleProduct = new SaleProduct{ProductId = element.ProductId, SaleId = currentSale.SaleId, Quantity = quantities[element], Price = element.Price, Discount = element.Discount};
+            SaleProduct currentSaleProduct = new SaleProduct{Product = element.ProductId, Sale = currentSale.SaleId, Quantity = quantities[element], Price = element.Price, Discount = element.Discount};
             saleProducts.Add(currentSaleProduct);
         }
     }
